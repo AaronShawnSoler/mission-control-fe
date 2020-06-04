@@ -5,6 +5,7 @@ import { Switch } from 'react-router-dom';
 import Layout from '../Layout';
 import Project from '../Project';
 import ProjectList from '../ProjectList';
+import ProductList from '../ProductList';
 
 // OKTA authentication widget, invokes implicit callback to login
 // if the user attempts to access a protected view.
@@ -33,7 +34,6 @@ export default withAuth(({ auth }) => {
   };
 
   return authState === null ? null : (
-    <Layout logout={invokeOktaLogout}>
       <Switch>
         <SecureRoute path="/project/:id" component={Project} />
         <SecureRoute
@@ -47,7 +47,14 @@ export default withAuth(({ auth }) => {
             />
           )}
         />
+        <SecureRoute exact path="/products" component={ProductList}/>
       </Switch>
-    </Layout>
   );
 });
+
+/**
+ * Nav component wraps around this entire component
+ * 
+ * <Layout logout={invokeOktaLogout}>
+ * </Layout>
+ */

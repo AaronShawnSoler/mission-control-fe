@@ -8,6 +8,8 @@ import Authorization from './Authorization';
 import { LabelProvider } from '../contexts/LabelContext';
 import { ColumnProvider } from '../contexts/ColumnContext';
 
+import './App.scss';
+
 const App = () => {
   const location = useLocation();
 
